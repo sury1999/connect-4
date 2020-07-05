@@ -1,0 +1,58 @@
+*, *::after, ::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.board {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(7, auto);
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell.rcircle,
+.cell.ycircle {
+  cursor:not-allowed;
+}
+
+.cell.rcircle {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: red;
+  border-radius: 50%;
+}
+
+.cell.ycircle {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: yellow;
+  border-radius: 50%;
+}
+
+/* need to add a js fn similar to tetris for the end so that gravity effect can be obtained
+therefore along with not.rcircle and not.ycirlce we have to chech .endcircles and write it in js
+*/
