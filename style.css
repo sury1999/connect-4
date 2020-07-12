@@ -1,99 +1,36 @@
-*, *::after, ::before {
-  box-sizing: border-box;
-}
-
-:root {
-  --cell-size: 100px;
-  --mark-size: calc(var(--cell-size) * 0.9);
-}
-
 body {
-  margin: 0;
-  padding: 0;
+  text-align: center;
 }
 
-.board {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  justify-items: center;
-  grid-template-columns: repeat(7, auto);
-}
-
-.cell {
-  width: var(--cell-size);
-  height: var(--cell-size);
-  display: flex;
+.grid {
   border: 1px solid black;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  height: 600px;
+  width: 700px;
   background-color: blue;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.cell.rcircle,
-.cell.ycircle {
-  cursor:not-allowed;
+
+.grid div {
+  height: 100px;
+  width: 100px;
 }
 
-.cell.rcircle {
-  width: var(--mark-size);
-  height: var(--mark-size);
+.grid.square {
+  background-color: black;
+}
+
+
+.player-one {
   background-color: red;
   border-radius: 50%;
-  background-color: red;
 }
 
-.cell.ycircle {
-  width: var(--mark-size);
-  height: var(--mark-size);
+
+.player-two {
   background-color: yellow;
   border-radius: 50%;
 }
-
-
-
-
-
-
-
-.winning-message {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
-  color:white;
-  font-size: 5rem;
-  flex-direction: column;
-}
-
-.winning-message button {
-  font-size: 3rem;
-  background-color: white;
-  border: 1px solid black;
-  padding: .25em .5em;
-  cursor: pointer;
-}
-
-.winning-message button:hover {
-  background-color: black;
-  color: white;
-  border-color: white;
-}
-
-.winning-message.show{
-  display: flex;
-}
-
-/* need to add a js fn similar to tetris for the end so that gravity effect can be obtained
-therefore along with not.rcircle and not.ycirlce we have to chech .endcircles and write it in js
-*/
